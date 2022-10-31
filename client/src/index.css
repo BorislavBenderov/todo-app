@@ -1,0 +1,91 @@
+:root {
+    --primary: #8B0008;
+    --secondary: #00CED1;
+    --light: #EEE;
+    --light-alt: #61759b;
+    --dark: #131A26;
+    --dark-slate-gray: #2F4F4F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--dark-slate-gray);
+    color: var(--light);
+}
+
+.App {
+    padding: 32px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 32px;
+}
+
+h4 {
+    font-size: 18px;
+    color: var(--light-alt);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.todo {
+    position: relative;
+    background-color: var(--dark);
+    padding: 16px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.todo:hover {
+    opacity: 0.8;
+}
+
+.todo .checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    border-radius: 1000px;
+    background-color: var(--dark-slate-gray);
+    transition: 0.5s;
+}
+
+.todo.is-complete .checkbox {
+    background-color: var(--primary);
+    background-image: linear-gradient(to bottom, var(--primaty), var(--secondary));
+}
+
+.todo .text {
+    font-size: 20px;
+}
+
+.todo.is-complete .text {
+    text-decoration: line-through;
+}
+
+.todo .delete-todo {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    color: var(--light);
+    background-color: aquamarine;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
