@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost:27017/mern-todo', {
     useUnifiedTopology: true
 })
     .then(() => console.log('Connected to DB'))
-    .catch((error) => console.log(error));
+    .catch(error => console.log(error));
 
 const Todo = require('./models/Todo');
 
@@ -21,6 +21,7 @@ app.get('/todos', async (req, res) => {
     const todos = await Todo.find();
 
     res.json(todos);
+    console.log(todos);
 });
 
 app.post('/todo/new', (req, res) => {
@@ -31,15 +32,16 @@ app.post('/todo/new', (req, res) => {
     todo.save();
 
     res.json(todo);
+    console.log(todo);
 });
 
 app.delete('/todo/delete/:id', async (req, res) => {
     const result = await Todo.findByIdAndDelete(req.params.id);
 
-    res.json(result);
+    res.json({result});
 });
 
-app.put('/todo/complete/:id', async (req, res) => {
+app.get('/todo/complete/:id', async (req, res) => {
     const todo = await Todo.findById(req.params.id);
 
     todo.complete = !todo.complete;
